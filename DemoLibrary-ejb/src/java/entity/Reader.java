@@ -101,7 +101,7 @@ public class Reader implements Serializable {
         this.address = address;
         this.status = status;
     }
-
+    
     public Integer getId() {
         return id;
     }

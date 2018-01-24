@@ -12,7 +12,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Library Manager - Reader</title>
+        <title>Library Manager - Category</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Reader</h1>
+                        <h1 class="page-header">Category</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -48,31 +48,31 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Readers List
+                                Categories List
                             </div>
                             <!--./panel-heading-->
                             <div class="panel-body">
-                                <h:dataTable value="#{readerBean.readers}" var="reader" styleClass="table table-striped table-hover" id="dataTables-readers">
+                                <h:dataTable value="#{categoryBean.categories}" var="cate" styleClass="table table-striped table-hover" id="dataTables-categories">
                                     <h:column>
                                         <f:facet name="header">ID</f:facet>
-                                            #{reader.code}
+                                            #{cate.id}
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Name</f:facet>
-                                            #{reader.name}
+                                            #{cate.name}
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Status</f:facet>
-                                            #{reader.status ? 'Available' : 'N/A'}
+                                            #{cate.status ? 'Available' : 'N/A'}
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header"></f:facet>
-                                        <h:link value="Update" outcome="reader_update">
-                                            <f:param name="id" value="#{reader.code}" />
+                                        <h:link value="Update" outcome="category_update">
+                                            <f:param name="id" value="#{cate.id}" />
                                         </h:link>
                                     </h:column>
                                 </h:dataTable>
-                                <h:link outcome="reader_create.xhtml" class="btn btn-outline btn-primary"><i class="fa fa-plus fw"></i> Create New Reader</h:link>
+                                <h:link outcome="category_create" class="btn btn-outline btn-primary"><i class="fa fa-plus fw"></i> Create New Category</h:link>
                             </div>
                             <!--./panel-body-->
                         </div>
@@ -104,7 +104,7 @@
 
         <script>
             $(function () {
-                $('#dataTables-readers').DataTable({
+                $('#dataTables-categories').DataTable({
                     
                 });
             });

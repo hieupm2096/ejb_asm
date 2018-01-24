@@ -6,8 +6,8 @@
 package controller;
 
 import entity.Reader;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -17,7 +17,7 @@ import session.ReaderFacade;
  *
  * @author oswal
  */
-public class ReaderBean {
+public class ReaderBean implements Serializable {
     
     private static final String READER_LIST_PAGE_REDIRECT = "reader_list?faces-redirect=true";
 
@@ -157,7 +157,7 @@ public class ReaderBean {
             reader.setGender(gender);
             reader.setAddress(address);
             reader.setStatus(true);
-            reader.setCode(null);
+//            reader.setCode(null);
             readerFacade.create(reader);
             
             return READER_LIST_PAGE_REDIRECT;
