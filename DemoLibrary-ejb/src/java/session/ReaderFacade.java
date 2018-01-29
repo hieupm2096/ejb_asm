@@ -9,7 +9,7 @@ import entity.Reader;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.StoredProcedureQuery;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -44,4 +44,9 @@ public class ReaderFacade extends AbstractFacade<Reader> {
 //        query.setParameter("address", address);
 //        return query.executeUpdate() != -1;
 //    }
+    
+    public int findLastId() {
+        TypedQuery<Reader> query = em.createQuery("SELECT r FROM Reader r ORDER BY r.id DESC", Reader.class);
+        return query.setMaxResults(1).getSingleResult().getId();
+    }
 }

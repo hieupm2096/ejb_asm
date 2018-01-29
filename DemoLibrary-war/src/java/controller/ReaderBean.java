@@ -157,7 +157,10 @@ public class ReaderBean implements Serializable {
             reader.setGender(gender);
             reader.setAddress(address);
             reader.setStatus(true);
-//            reader.setCode(null);
+            
+            int lastId = readerFacade.findLastId();
+            reader.setCode("R" + String.format("%07d", lastId + 1));
+
             readerFacade.create(reader);
             
             return READER_LIST_PAGE_REDIRECT;
